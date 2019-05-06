@@ -1,0 +1,28 @@
+.input{
+  position: relative;
+  width: 50%;
+  margin: 0px auto 40px;
+  
+}
+.input-explain{
+  display: none;
+  font-variant: tabular-nums;
+  font-feature-settings: 'tnum';
+  color: #f5222d;
+  box-sizing: border-box;
+  clear: both;
+  min-height: 40px;
+  font-size: 14px;
+  -webkit-transition: color .3s cubic-bezier(.215, .61, .355, 1);
+  transition: color .3s cubic-bezier(.215, .61, .355, 1);
+  position: absolute
+}
+.input-error{
+  display: block;
+}
+.hospitalNameClass{
+  width: 150px;
+}
+.hospitalAddressClass{
+  width: 300px;
+}
