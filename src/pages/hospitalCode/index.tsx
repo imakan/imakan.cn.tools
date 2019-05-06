@@ -6,7 +6,6 @@ import './index.less';
 import { hospitalProps } from './interface.d';
 const HospitalCode = (props: hospitalProps) => {
   const [tableData, setTableData] = useState();
-  const [loadding, setLoading] = useState(false);
   useEffect(() => {
     getAllHospitalDetail().then((dataSource) => {
       setTableData(dataSource);

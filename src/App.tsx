@@ -1,6 +1,6 @@
 import { notification } from 'antd';
 import React, { Component, ErrorInfo } from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
 import Mylayout from './layouts/BasicLayout/index';
