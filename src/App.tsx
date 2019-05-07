@@ -14,7 +14,7 @@ class App extends Component {
   }
   public render() {
     return (
-      <Router basename="/tools/">
+      <Router basename="/tools">
         <Mylayout
           history={window.history}
           location={window.location}
