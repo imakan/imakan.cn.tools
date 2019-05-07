@@ -9,9 +9,10 @@ const HospitalCode = (props: hospitalProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [total, setTotal] = useState(0);
+  const [showPagination, setShowPagination] = useState(true);
 
   useEffect(() => {
-    getAllHospitalDetail(currentPage, pageSize).then((data:any) => {
+    getAllHospitalDetail(currentPage, pageSize).then((data: any) => {
       setTableData(data.data);
       setTotal(data.total || 0);
     });
@@ -31,11 +32,9 @@ const HospitalCode = (props: hospitalProps) => {
   ];
   let pageChange = (currentPage: number) => {
     setCurrentPage(currentPage);
-    console.log('Page: ', currentPage);
   };
   let onShowSizeChange = (current: number, pageSize: number) => {
     setPageSize(pageSize);
-    console.log(current, pageSize);
   };
   let getHospitalDetail = (dataSource: any) => {
     if (dataSource.length === 0) {
@@ -45,24 +44,25 @@ const HospitalCode = (props: hospitalProps) => {
     setPageSize(10);
     // 默认当前页
     setCurrentPage(1);
+    // 隐藏分页器
+    setShowPagination(false);
     setTableData(dataSource);
   };
   return (
     <React.Fragment>
       <HospitalSearch getData={getHospitalDetail} />
       <Table bordered={true} size="middle" locale={{ emptyText: '暂无医院信息' }} columns={columns} pagination={false} dataSource={tableData} />
-      <Pagination
+      {showPagination && <Pagination
         className="tabelPagination"
         showQuickJumper
         showSizeChanger
-        hideOnSinglePage
         defaultCurrent={1}
         total={total}
         current={currentPage}
         pageSize={pageSize}
         onChange={pageChange}
         onShowSizeChange={onShowSizeChange}
-      />
+      />}
     </React.Fragment>
   );
 };
