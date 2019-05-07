@@ -14,12 +14,12 @@ class App extends Component {
   }
   public render() {
     return (
-      <Router>
+      <Router basename="/tools/">
         <Mylayout
           history={window.history}
           location={window.location}
           match={window.location.pathname}
-        />
+        />;
       </Router>
     );
   }
